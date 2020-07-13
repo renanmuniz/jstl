@@ -20,6 +20,7 @@
 	</script>
 
 	<h1>Produtos</h1>
+	<h2><fmt:message key="mensagem.bemvindo"/></h2>
 	<div id="mensagem"></div>
 	<table width="100%">
 		<tr>
@@ -47,14 +48,6 @@
 					<fmt:formatDate value="${p.dataInicioVenda.time}" pattern="EEEE, dd 'de' MMMM 'de' yyyy" />
 				</td>
 				
-				<c:if test="${p.usado}">
-					<td>Sim</td>
-				</c:if>
-				<c:if test="${not p.usado}">
-					<td>Não</td>
-				</c:if>
-				
-				<%-- trecho de código comentado:
 				<c:choose>
 					<c:when test="${p.usado }">
 						<td>Sim</td>
@@ -62,9 +55,7 @@
 					<c:otherwise>
 						<td>Não</td>
 					</c:otherwise>
-				</c:choose>
-				fim do comentário. --%> 			
-				
+				</c:choose>	
 				
 				<td><a href="#" onclick="return removeProduto(${p.id})">Remover</a></td>
 			</tr>
@@ -72,7 +63,7 @@
 	</table>
 	<br>
 	<c:url value="/produto/formulario" var="urlAdicionar" />
-	<a href="${urlAdicionar }">Adicionar um produto</a>
+	<a href="${urlAdicionar }"><fmt:message key="mensagem.novoProduto" /></a>
 	<br>
 	<c:set var="nome" value="João da Silva" />
 	<c:out value="${nome}" />
