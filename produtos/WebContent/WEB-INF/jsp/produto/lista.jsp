@@ -28,6 +28,7 @@
 			<td>Preco</td>
 			<td>Descricao</td>
 			<td>Data de Inicio da Venda</td>
+			<td>Usado?</td>
 			<td width="20%">Remover?</td>
 		</tr>
 		
@@ -39,6 +40,27 @@
 				<td>${p.preco}</td>
 				<td>${p.descricao}</td>
 				<td>${p.dataInicioVenda.time}</td>
+				
+				<c:if test="${p.usado}">
+					<td>Sim</td>
+				</c:if>
+				<c:if test="${not p.usado}">
+					<td>Não</td>
+				</c:if>
+				
+				<%-- trecho de código comentado:
+				<c:choose>
+					<c:when test="${p.usado }">
+						<td>Sim</td>
+					</c:when>
+					<c:otherwise>
+						<td>Não</td>
+					</c:otherwise>
+				</c:choose>
+				fim do comentário. --%> 
+				
+				
+				
 				<td><a href="#" onclick="return removeProduto(${p.id})">Remover</a></td>
 			</tr>
 		</c:forEach>
