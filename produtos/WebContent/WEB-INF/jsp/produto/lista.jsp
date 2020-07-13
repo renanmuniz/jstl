@@ -64,8 +64,7 @@
 	<br>
 	<c:url value="/produto/formulario" var="urlAdicionar" />
 	<a href="${urlAdicionar }"><fmt:message key="mensagem.novoProduto" /></a>
-	<br>
-	<c:set var="nome" value="João da Silva" />
-	<c:out value="${nome}" />
+		
+	<c:import url="../_comum/rodape.jsp"/>
 </body>
 </html>
