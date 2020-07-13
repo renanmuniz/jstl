@@ -36,10 +36,16 @@
 		
 			<tr id="produto${p.id}">
 				<td>${st.count}</td>
-				<td>${p.nome}</td>
-				<td>${p.preco}</td>
+				<td>${p.nome.toUpperCase()}</td>
+				<td>
+					<fmt:formatNumber value="${p.preco}" type="currency" />
+				</td>
 				<td>${p.descricao}</td>
-				<td>${p.dataInicioVenda.time}</td>
+				<td>
+				
+					<%--<fmt:formatDate value="${p.dataInicioVenda.time}" pattern="dd/MM/yyyy" /> --%>
+					<fmt:formatDate value="${p.dataInicioVenda.time}" pattern="EEEE, dd 'de' MMMM 'de' yyyy" />
+				</td>
 				
 				<c:if test="${p.usado}">
 					<td>Sim</td>
@@ -57,8 +63,7 @@
 						<td>Não</td>
 					</c:otherwise>
 				</c:choose>
-				fim do comentário. --%> 
-				
+				fim do comentário. --%> 			
 				
 				
 				<td><a href="#" onclick="return removeProduto(${p.id})">Remover</a></td>
